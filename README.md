@@ -1,5 +1,7 @@
 # ele
 饿了么 吃货豆
+## 主要更新平台 https://hamibot.com/marketplace/mzTiz
+
 ## 功能
 #### 自动完成吃货豆任务
 
