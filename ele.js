@@ -52,7 +52,7 @@ function check_click() {
 }
 
 function video() {
-  textContains('说两句').waitFor();
+  waitForActivity('me.ele.warlock.o2olifecircle.video.magex.VideoDetailsActivity');
   toastLog('\n已进入视频页\n刷完 自动退回桌面');
   text('明日再领').waitFor();  
   home();
@@ -69,7 +69,7 @@ app.startActivity({
 
 //主程序
 check_click();
-log('请双击点进视频页中...\n 它在"订单"左边 \n等待中...')
+log('1.请手动双击,点进"真香"视频页中...\n 点进去，不要停留在外面 \n等待中...')
 video();
 exit();
 
