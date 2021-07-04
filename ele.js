@@ -3,6 +3,7 @@ var dev_hight = device.height;
 var dev_width = device.width;
 if(dev_hight && dev_width == 0) {toastLog('BUG啦，请重启手机');exit();}
 console.show();
+var times = 1;
 
 //子线程 音量键关闭
 threads.start(function(){
@@ -22,7 +23,7 @@ function check_click() {
       if(list_15sec[i] && list_15sec[i].parent().child(2).text() != '奖励已到账') {
         sleep(1000);
         list_15sec[i].parent().child(2).click();
-        console.log(list_15sec[i].parent().child(0).getText())
+        console.log(times+++'.'+list_15sec[i].parent().child(0).getText())
         console.log('等待...');
         textMatches("任务完成|点击返回").waitFor();
         back();sleep(500);
@@ -52,8 +53,8 @@ function check_click() {
 }
 
 function video() {
-  waitForActivity('me.ele.warlock.o2olifecircle.video.magex.VideoDetailsActivity');
-  toastLog('\n已进入视频页\n刷完 自动退回桌面');
+  text('馋了饿了，说两句~').waitFor(); 
+  toastLog('\n已进入视频页\n吃货豆圈圈旋转完，自动退回桌面');
   text('明日再领').waitFor();  
   home();
   toastLog('已经刷完 自动结束')
