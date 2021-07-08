@@ -13,12 +13,10 @@ events.onKeyDown("volume_up", function(event){toastLog("\n音量+被按下，即
 
 //检测并点击
 function check_click() {
-  text('下单任务').waitFor();
-  sleep(2000);
   outer: 
   while(1){
 		let list_15sec = textContains('15秒').find();
-    let list_0sec = textContains('浏览').find();
+    let list_0sec = textMatches('浏览.+|看看.+').find();
     for(i = 0; i < list_15sec.length; i++){
       if(list_15sec[i] && list_15sec[i].parent().child(2).text() != '奖励已到账') {
         sleep(1000);
@@ -36,7 +34,7 @@ function check_click() {
     }  
       
     for(i = 0; i < list_0sec.length; i++){
-      if(list_0sec[i] && list_0sec[i].parent().child(2).text() != '奖励已到账') {
+          if(list_0sec[i] && list_0sec[i].parent().child(2).text() != '奖励已到账') {
           list_0sec[i].parent().child(2).click();
           sleep(3000);
           back();
@@ -45,11 +43,11 @@ function check_click() {
         	text('逛逛任务').waitFor();
         	sleep(1000);
         	continue outer;
-      }
-  	} 
+          }
     break;
-  }
+    }
   toastLog('任务1 基本完成');
+    }
 }
 
 function video() {
@@ -62,15 +60,17 @@ function video() {
 
 //启动并跳转
 toastLog('启动饿了么\n按下音量+ 脚本停止');
-home();sleep(2000);
+home();sleep(1000);
 app.startActivity({
   packageName: "me.ele",
   data: 'eleme://web?&url=https://h5.ele.me/svip/task-list'
   });
+text('下单任务').waitFor();
+sleep(2000);
 
 //主程序
 check_click();
-log('1.请手动双击,点进"真香"视频页中...\n 点进去，不要停留在外面 \n等待中...')
+log('1.请手动双击,点进"真香"视频页中...\n 点进去，不要停留在外面 \n等待中...');
 video();
 exit();
 
