@@ -44,9 +44,9 @@ function check_click() {
         	sleep(1000);
         	continue outer;
           }
-    break;
     }
   toastLog('任务1 基本完成');
+  break;
     }
 }
 
@@ -73,4 +73,3 @@ check_click();
 log('1.请手动双击,点进"真香"视频页中...\n 点进去，不要停留在外面 \n等待中...');
 video();
 exit();
-
